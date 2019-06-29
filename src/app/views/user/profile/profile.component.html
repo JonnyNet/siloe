@@ -1,0 +1,76 @@
+<div class="animated fadeIn ">
+    <div class="row">
+        <div class="col-sm-10">
+            <h1>Perfil</h1>
+        </div>
+    </div>
+    <div class="row white">
+        <div class="col-sm-3">
+            <!--left col-->
+            <div class="text-center">
+                <img src="assets/img/avatars/profile.png" class="img-circle img-thumbnail" alt="avatar">
+                <button aria-pressed="true" class="btn btn-pill btn-block btn-primary mt-2" type="button"
+                    (click)="avatar.click()">Examinar</button>
+                <input hidden type="file" class="text-center center-block file-upload" #avatar>
+            </div>
+
+        </div>
+        <!--/col-3-->
+        <div class="col-sm-9">
+            <form class="form" [formGroup]="form" (ngSubmit)="onSubmit(form.value)" novalidate>
+                <input type="hidden" formControlName="uid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Nombre:</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name"
+                                formControlName="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="displayName">Nombre Corto:</label>
+                            <input type="text" class="form-control" name="displayName" id="displayName"
+                                placeholder="Display Name" formControlName="displayName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="text" class="form-control" name="email" id="email" placeholder="Enter Email"
+                                formControlName="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="job">Cargo:</label>
+                            <input type="text" class="form-control" name="job" id="job" placeholder="Enter job"
+                                formControlName="job">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="phoneNumber">Celular:</label>
+                            <input type="email" class="form-control" name="phoneNumber" id="phoneNumber"
+                                placeholder="Phone Number" formControlName="phoneNumber">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="church">Iglesia:</label>
+                            <input type="church" class="form-control" id="church" placeholder="Enter Church"
+                                formControlName="church">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rol">Rol:</label>
+                            <input type="text" class="form-control" name="rol" id="rol" placeholder="Role"
+                                formControlName="rol">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>
+<!--/row-->

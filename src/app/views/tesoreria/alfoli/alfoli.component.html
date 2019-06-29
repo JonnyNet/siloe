@@ -1,0 +1,68 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-6 col-md-12">
+      <div class="card">
+        <div class="card-header">
+          Card title
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit(this.form.value)" [formGroup]="form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="" class="form-label">Nombre</label>
+                  <div matAutocompleteOrigin #origin="matAutocompleteOrigin">
+                    <input matInput [matAutocomplete]="auto" [matAutocompleteConnectedTo]="origin" type="text"
+                      class="form-control" formControlName="Nombre" tabindex=1>
+                  </div>
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of options | async" [value]="option">{{option}}</mat-option>
+                  </mat-autocomplete>
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-condensed table-hover">
+                    <tbody>
+                      <tr *ngFor="let field of fields2;index as i" class="{{ field.data.Clase }}">
+                        <td>{{ field.data.Nombre}}</td>
+                        <td>
+                          <input type="text" class="form-control" [formControlName]="field.data.Input"
+                            [readonly]="field.data.Readonly" [tabindex]="i+3"
+                            (keyup)="sumarOfrendas(fields4, totalOfrenda, true)">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="" class="form-label">Diezmo</label>
+                  <input type="text" class="form-control" formControlName="Diezmo" tabindex=2
+                    (keyup)="sumarOfrendas(fields5, total)">
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-condensed table-hover">
+                    <tbody>
+                      <tr *ngFor="let field of fields3;index as i" class="{{ field.data.Clase }}">
+                        <td>{{ field.data.Nombre}}</td>
+                        <td>
+                          <input type="text" class="form-control" [formControlName]="field.data.Input"
+                            [readonly]="field.data.Readonly" [tabindex]="i + 3 + fields2.length"
+                            (keyup)="sumarOfrendas(fields5, total)">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="pull-right">
+              <button type="submit" class="btn btn-square btn-info" [disabled]="!this.form.valid"><i
+                  class="fa fa-floppy-o"></i> Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

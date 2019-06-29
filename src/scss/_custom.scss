@@ -1,0 +1,43 @@
+// Here you can add other styles
+app-login,
+app-forgot-password,
+app-newpassword{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.error{
+    position: absolute;
+    left: 0;
+    top: 30px;
+    color: lightcoral;
+}
+
+.field-error{
+    color: lightcoral;
+}
+
+.table{
+    font-size: 14px !important;
+}
+
+.table th{
+    font-weight: bold;
+    font-size: 14px !important;
+    text-align: center !important;
+    vertical-align: middle;
+    border-top: none;
+}
+
+.table tr{
+    height: 35px;
+}
+
+.table td{
+    padding: 0;
+    vertical-align: middle;
+    text-align: center !important;
+}
